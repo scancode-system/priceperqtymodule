@@ -1,0 +1,13 @@
+{
+    "name": "PricePerQty",
+    "alias": "priceperqty",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\PricePerQty\\Providers\\PricePerQtyServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
