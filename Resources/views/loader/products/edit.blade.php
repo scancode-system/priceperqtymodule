@@ -1,4 +1,5 @@
 <hr>
+<h4>Preços Promocionais por quantidade</h4>
 {{ Form::open(['route' => 'priceperquantity.store']) }}
 {{ Form::hidden('product_id', $product->id) }}
 <div class="row">
