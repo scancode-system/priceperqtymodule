@@ -27,10 +27,13 @@ class AfterImportProductListener
         $price_per_quantities = collect([]);
         foreach ($data as $field => $value) 
         {
-            if(preg_match('/\b(price_qty_\w*)\b/', $field))
+            if(!is_null($value))
             {
-                $qty = str_replace('price_qty_', '', $field);
-                $price_per_quantities->push(['qty' => $qty, 'price' => $value]);
+                if(preg_match('/\b(price_qty_\w*)\b/', $field))
+                {
+                    $qty = str_replace('price_qty_', '', $field);
+                    $price_per_quantities->push(['qty' => $qty, 'price' => $value]);
+                }
             }
         }
         return $price_per_quantities;
