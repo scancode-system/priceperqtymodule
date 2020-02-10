@@ -29,10 +29,16 @@ class AfterImportProductListener
         {
             if(!is_null($value))
             {
-                if(preg_match('/\b(price_qty_\w*)\b/', $field))
+                if(preg_match('/\b(price_qty_price_\w*)\b/', $field))
                 {
-                    $qty = str_replace('price_qty_', '', $field);
-                    $price_per_quantities->push(['qty' => $qty, 'price' => $value]);
+                    $key = str_replace('price_qty_price_', '', $field);
+                    if(isset($data['price_qty_qty_'.$key]))
+                    {
+                        if(!is_null($data['price_qty_qty_'.$key]))
+                        {
+                            $price_per_quantities->push(['qty' => $data['price_qty_qty_'.$key], 'price' => $value]);
+                        }
+                    }
                 }
             }
         }
